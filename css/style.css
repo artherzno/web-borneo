@@ -1,0 +1,304 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: "Sarabun", sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #0068a7;
+  text-decoration: none;
+}
+
+/* BS5 Modify */
+.btn {
+  border: none;
+}
+
+.btn-primary {
+  background-color: #0068a7;
+}
+
+.btn-secondary {
+  background-color: #a7a7a7;
+}
+
+/* Main CSS */
+
+* {
+  box-sizing: border-box;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  padding: 5px 0;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.portal-page {
+  background-image: url(/assets/borneo.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.portal-page .header {
+  display: none;
+}
+
+.portal-page .footer {
+  color: #ffffff;
+}
+
+.portal-page .logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -15%;
+  bottom: 0;
+  margin: auto;
+  width: 30%;
+}
+
+.portal-page nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 122px;
+  background-color: #0068a7;
+}
+
+.portal-page nav ul {
+  margin-top: -25px;
+  display: flex;
+}
+
+.portal-page nav ul li {
+  flex: 1;
+}
+
+.portal-page nav ul li:hover {
+  opacity: 0.95;
+}
+
+.portal-page nav ul li a {
+  padding: 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #0068a7;
+  display: flex;
+  background: rgb(183, 183, 183);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(183, 183, 183, 1) 0%,
+    rgba(252, 252, 252, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(183, 183, 183, 1) 0%,
+    rgba(252, 252, 252, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(183, 183, 183, 1) 0%,
+    rgba(252, 252, 252, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b7b7b7",endColorstr="#fcfcfc",GradientType=1);
+}
+
+.portal-page nav ul li a .ic {
+  width: 46px;
+  height: 46px;
+  flex: 1;
+}
+
+.portal-page nav ul li a .title {
+  flex: 3;
+  padding: 6px 0;
+}
+
+.portal-page nav ul li a .title p {
+  line-height: 1.2;
+}
+
+.portal-page nav ul li a .title p:last-child {
+  font-size: 0.8rem;
+}
+
+/* Chart.js */
+@keyframes chartjs-render-animation {
+  from {
+    opacity: 0.99;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.chartjs-render-monitor {
+  animation: chartjs-render-animation 1ms;
+}
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+  position: absolute;
+  direction: ltr;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: -1;
+}
+.chartjs-size-monitor-expand > div {
+  position: absolute;
+  width: 1000000px;
+  height: 1000000px;
+  left: 0;
+  top: 0;
+}
+.chartjs-size-monitor-shrink > div {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0;
+}
