@@ -56,14 +56,14 @@ fieldset,
 form,
 label,
 legend,
-table,
+/* table, */
 caption,
-tbody,
+/* tbody,
 tfoot,
 thead,
 tr,
 th,
-td,
+td, */
 article,
 aside,
 canvas,
@@ -124,10 +124,10 @@ q:after {
   content: "";
   content: none;
 }
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+} */
 
 a,
 a:hover,
@@ -139,6 +139,11 @@ a:visited {
 /* BS5 Modify */
 .btn {
   border: none;
+  font-size: 14px;
+}
+
+a.btn {
+  color: #ffffff;
 }
 
 .btn-primary {
@@ -149,10 +154,125 @@ a:visited {
   background-color: #a7a7a7;
 }
 
-/* Main CSS */
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
 
+.main-content {
+  padding: 20px;
+}
+
+.main-content h1 {
+  font-size: 20px;
+  margin: 0 10px 20px;
+  color: #0068a7;
+}
+
+.main-content h1 b {
+  font-size: 24px;
+}
+
+.card-header {
+  border-bottom: 0;
+  color: #0068a7;
+  font-size: 16px;
+}
+
+.modal-dialog .modal-footer {
+  display: flex;
+}
+
+.modal-dialog .modal-footer .btn {
+  flex: 1;
+}
+
+.tab-pane {
+  padding: 20px;
+}
+
+.table .form-control-plaintext,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table thead tr {
+  background-color: #0068a7;
+}
+
+.table thead tr th {
+  color: #ffffff;
+  width: 36px;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #deffff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  --bs-table-accent-bg: transparent;
+  background-color: #ffffff;
+}
+
+.table > tbody > tr.row-summary {
+  border: 1px solid red;
+}
+
+.table > tbody > tr.row-summary > td {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table > tbody > tr.row-last {
+  background-color: #a2ecff;
+}
+
+.table > tbody > tr > td.color-red {
+  color: red;
+}
+
+.table > tbody > tr > td.bg-red {
+  color: #ffffff;
+  background-color: red;
+}
+
+.table > tbody > tr > td.bg-yellow {
+  background-color: #fffade;
+}
+
+/* Main CSS */
 * {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+.header {
+  width: 100%;
+  height: 48px;
+  background-image: url(/assets/borneo-header.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header .logo {
+  width: 78px;
+  margin: 6px 10px;
+}
+
+.header .profile {
+  text-align: right;
+  float: right;
+}
+
+.header .profile p {
+  padding: 16px 10px;
 }
 
 .footer {
@@ -164,12 +284,7 @@ a:visited {
   padding: 5px 0;
 }
 
-.container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-}
-
+/* Portal Page */
 .portal-page {
   background-image: url(/assets/borneo.jpg);
   background-position: center;
@@ -260,6 +375,11 @@ a:visited {
 
 .portal-page nav ul li a .title p:last-child {
   font-size: 0.8rem;
+}
+
+/* Transport Page */
+#transport-search {
+  margin-right: 10px;
 }
 
 /* Chart.js */
