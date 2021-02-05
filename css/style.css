@@ -196,6 +196,8 @@ a.btn {
   border-color: #dbdbdb;
   border-bottom-color: #0068a7;
   color: #9b9b9b;
+  font-weight: bold;
+  /* font-size: 16px; */
 }
 
 .nav-tabs .nav-link._rfe {
@@ -287,6 +289,7 @@ a.btn {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  padding: 0.5rem 0.5rem;
 }
 
 .table > tbody > tr.row-last {
@@ -304,6 +307,14 @@ a.btn {
 
 .table > tbody > tr > td.bg-yellow {
   background-color: #fffade;
+}
+
+.table > tbody > tr > td {
+  padding: 0;
+}
+
+.table > tbody > tr > td:last-child {
+  padding: 0 0.5rem;
 }
 
 /* Main CSS */
