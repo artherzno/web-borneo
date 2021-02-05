@@ -199,18 +199,40 @@ a.btn {
 }
 
 .nav-tabs .nav-link._rfe {
-  color: #0068a7;
+  background-color: #deffff80;
   font-weight: bold;
+  color: #9b9b9b;
+}
+
+.nav-tabs .nav-item.show .nav-link._rfe,
+.nav-tabs .nav-link.active._rfe {
+  background-color: #deffff;
+  border-bottom-color: #deffff;
+  color: black;
 }
 
 .nav-tabs .nav-link._graft {
-  color: #01acd6;
+  background-color: #01abd675;
   font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-tabs .nav-item.show .nav-link._graft,
+.nav-tabs .nav-link.active._graft {
+  background-color: #01abd6;
+  border-bottom-color: #01abd6;
 }
 
 .nav-tabs .nav-link._summary {
-  color: red;
+  background-color: rgba(255, 0, 0, 0.514);
   font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-tabs .nav-item.show .nav-link._summary,
+.nav-tabs .nav-link.active._summary {
+  background-color: rgb(255, 0, 0);
+  border-bottom-color: red;
 }
 
 .nav-tabs .nav-item.show .nav-link,
