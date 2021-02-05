@@ -59,9 +59,9 @@
                       <a class="nav-link" id="nav-1-tab" data-bs-toggle="tab" href="#nav-10" role="tab" aria-controls="nav-10" aria-selected="true">JANUARY 20</a>
                       <a class="nav-link" id="nav-2-tab" data-bs-toggle="tab" href="#nav-11" role="tab" aria-controls="nav-11" aria-selected="false">FEBUARY 20</a>
                       <a class="nav-link" id="nav-3-tab" data-bs-toggle="tab" href="#nav-12" role="tab" aria-controls="nav-12" aria-selected="false">MARCH 20</a>
-                      <a class="nav-link" id="nav-1-tab" data-bs-toggle="tab" href="#nav-13" role="tab" aria-controls="nav-13" aria-selected="true">RFE</a>
-                      <a class="nav-link" id="nav-2-tab" data-bs-toggle="tab" href="#nav-14" role="tab" aria-controls="nav-14" aria-selected="false">GRAFT</a>
-                      <a class="nav-link" id="nav-3-tab" data-bs-toggle="tab" href="#nav-15" role="tab" aria-controls="nav-15" aria-selected="false">SUMMARY</a>
+                      <a class="nav-link _rfe" id="nav-1-tab" data-bs-toggle="tab" href="#nav-13" role="tab" aria-controls="nav-13" aria-selected="true">RFE</a>
+                      <a class="nav-link _graft" id="nav-2-tab" data-bs-toggle="tab" href="#nav-14" role="tab" aria-controls="nav-14" aria-selected="false">GRAFT</a>
+                      <a class="nav-link _summary" id="nav-3-tab" data-bs-toggle="tab" href="#nav-15" role="tab" aria-controls="nav-15" aria-selected="false">SUMMARY</a>
                     </div>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
@@ -35243,6 +35243,14 @@
                             <canvas id="tab13-chart-1" width="90%" height=""></canvas> 
                         </div>
                     </div>
+
+                    <div class="tab-pane fade" id="nav-14" role="tabpanel" aria-labelledby="nav-14-tab">
+                        <h1>Graft</h1>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-15" role="tabpanel" aria-labelledby="nav-15-tab">
+                        <h1>Summary</h1>
+                    </div>
                     
                   </div>
             </div>
@@ -35278,7 +35286,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
 
     <script>
-        var data = {
+        var dataGraph = {
                 labels: ['เม.ย.19', 'พ.ค.19', 'มิ.ย.19', 'ก.ค.19', 'ส.ค.19', 'ก.ย.19', 'ต.ค.19', 'พ.ย.19', 'ธ.ค.19', 'ม.ค.20', 'ก.พ.20', 'มี.ค.20'],
                 datasets: [{
                     label: '# ยอดเงิน',
@@ -35306,56 +35314,18 @@
         var ctx = document.getElementById('tab13-chart-1').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
-            data: data,
+            data: dataGraph,
             options: {
-                "hover": {
-                "animationDuration": 0
-                },
-                "animation": {
-                "duration": 1,
-                "onComplete": function() {
-                    var chartInstance = this.chart,
-                    ctx = chartInstance.ctx;
-
-                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'bottom';
-
-                    this.data.datasets.forEach(function(dataset, i) {
-                    var meta = chartInstance.controller.getDatasetMeta(i);
-                    meta.data.forEach(function(bar, index) {
-                        var data = dataset.data[index];
-                        ctx.fillText(data, bar._model.x, bar._model.y - 5);
-                    });
-                    });
-                }
-                },
-                legend: {
-                        "display": false
-                    },
-                    tooltips: {
-                        "enabled": false
-                    },
-                    scales: {
+                scales: {
                     yAxes: [{
-                        display: false,
-                        gridLines: {
-                            display: false
-                        },
                         ticks: {
-                            max: Math.max(...data.datasets[0].data) + 10,
-                            display: false,
-                            beginAtZero: true
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        },
-                        ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
                         }
                     }]
+                },
+                title: {
+                    display: true,
+                    text: 'Custom Chart Title'
                 }
             }
         });
