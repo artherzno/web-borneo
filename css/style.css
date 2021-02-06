@@ -213,14 +213,14 @@ a.btn {
   color: black;
 }
 
-.nav-tabs .nav-link._graft {
+.nav-tabs .nav-link._graph {
   background-color: #01abd675;
   font-weight: bold;
   color: #ffffff;
 }
 
-.nav-tabs .nav-item.show .nav-link._graft,
-.nav-tabs .nav-link.active._graft {
+.nav-tabs .nav-item.show .nav-link._graph,
+.nav-tabs .nav-link.active._graph {
   background-color: #01abd6;
   border-bottom-color: #01abd6;
 }

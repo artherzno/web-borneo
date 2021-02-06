@@ -60,7 +60,7 @@
                       <a class="nav-link" id="nav-11-tab" data-bs-toggle="tab" href="#nav-11" role="tab" aria-controls="nav-11" aria-selected="false">FEBUARY 20</a>
                       <a class="nav-link" id="nav-12-tab" data-bs-toggle="tab" href="#nav-12" role="tab" aria-controls="nav-12" aria-selected="false">MARCH 20</a>
                       <a class="nav-link _rfe" id="nav-13-tab" data-bs-toggle="tab" href="#nav-13" role="tab" aria-controls="nav-13" aria-selected="true">RFE</a>
-                      <a class="nav-link _graft" id="nav-14-tab" data-bs-toggle="tab" href="#nav-14" role="tab" aria-controls="nav-14" aria-selected="false">GRAFT</a>
+                      <a class="nav-link _graph" id="nav-14-tab" data-bs-toggle="tab" href="#nav-14" role="tab" aria-controls="nav-14" aria-selected="false">GRAPH</a>
                       <a class="nav-link _summary" id="nav-15-tab" data-bs-toggle="tab" href="#nav-15" role="tab" aria-controls="nav-15" aria-selected="false">SUMMARY</a>
                     </div>
                   </nav>
@@ -40148,7 +40148,7 @@
         });
 
         document.querySelector('#nav-14-tab').addEventListener('click',function(){
-            var dataGraft = {
+            var dataGraph = {
                     labels: ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
                     datasets: [{
                         label: 'SUB-CONTRACTOR',
@@ -40312,7 +40312,7 @@
             var ctx = document.getElementById('tab14-chart-1').getContext('2d');
             var config = {
                 type: 'bar',
-                data: dataGraft,
+                data: dataGraph,
                 options: {
                     scales: {
                         yAxes: [{
@@ -40340,11 +40340,11 @@
                 }
             };
         
-            var chartGraft = new Chart(ctx, config);
-            chartGraft.destroy();
+            var chartGraph = new Chart(ctx, config);
+            chartGraph.destroy();
 
             setTimeout(() => {
-                var chartGraft = new Chart(ctx, config);
+                var chartGraph = new Chart(ctx, config);
             }, 500);
         });
 
