@@ -91,6 +91,16 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  font-weight: bold;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -146,16 +156,24 @@ a.btn {
   color: #ffffff;
 }
 
-.btn-primary {
+.btn-primary,
+.bg-blue {
   background-color: #0068a7;
 }
 
-.btn-secondary {
+.btn-secondary,
+.bg-grey {
   background-color: #a7a7a7;
 }
 
 .container {
   max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-small {
+  max-width: 840px;
   width: 100%;
   margin: 0 auto;
 }
@@ -186,6 +204,17 @@ a.btn {
 
 .modal-dialog .modal-footer .btn {
   flex: 1;
+}
+
+.modal-dialog .modal-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #0068a7;
+}
+
+.modal-dialog .modal-title span {
+  font-size: 1rem;
+  color: #9b9b9b;
 }
 
 .nav-tabs {
@@ -248,15 +277,29 @@ a.btn {
   padding: 20px;
 }
 
+.tab-pane h1 {
+  padding: 0;
+  margin: 0;
+}
+
 .tab-content > .tab-pane {
   border: 1px solid #0068a7;
   border-top: none;
+}
+
+.table-scroll {
+  overflow: scroll;
+}
+
+.table-add input {
+  border-bottom-color: #ced4da;
 }
 
 .table .form-control-plaintext,
 .table th {
   vertical-align: middle;
   text-align: center;
+  padding: 0;
 }
 
 .table thead tr {
@@ -265,7 +308,9 @@ a.btn {
 
 .table thead tr th {
   color: #ffffff;
-  width: 36px;
+  width: auto;
+  line-height: 1.6;
+  padding: 0.3rem 0.3rem;
 }
 
 .table tbody tr th {
@@ -296,11 +341,11 @@ a.btn {
   background-color: #a2ecff;
 }
 
-.table > tbody > tr > td.color-red {
+.table > tbody > tr > .color-red {
   color: red;
 }
 
-.table > tbody > tr > td.bg-red {
+.table > tbody > tr > .bg-red {
   color: #ffffff;
   background-color: red;
 }
@@ -309,12 +354,50 @@ a.btn {
   background-color: #fffade;
 }
 
-.table > tbody > tr > td {
-  padding: 0;
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+  padding: 0.3rem;
 }
 
 .table > tbody > tr > td:last-child {
   padding: 0 0.5rem;
+}
+
+.form-check-label {
+  line-height: 1.5;
+}
+
+.card {
+  border-color: #0068a7;
+}
+
+/* JQuery UI */
+.date-picker {
+  position: relative;
+}
+
+.date-picker img {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+
+.ui-datepicker {
+  padding: 0;
+  width: 14rem;
+}
+
+.ui-widget-header {
+  background-color: #0068a7;
+  color: #ffffff;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  background-color: #0068a7;
+  border-color: #01abd6;
+  color: #ffffff;
 }
 
 /* Main CSS */
@@ -454,6 +537,16 @@ body {
 /* Transport Page */
 #transport-search {
   margin-right: 10px;
+}
+
+/* Cost Daily and Month Page */
+.costdailymonth-page .col-form-label {
+  line-height: 1;
+}
+
+.costdailymonth-page .table > tbody > tr > td {
+  min-width: 100px;
+  text-align: center;
 }
 
 /* Chart.js */

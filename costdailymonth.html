@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>BORNEO</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+    <link rel="stylesheet" href="css/style.css"></head>
+  <body>
+        <div class="costdailymonth-page">
+            <div class="header">
+                <img class="logo" src="/assets/logo-borneo.png" alt="BORNEO">
+                <div class="profile">
+                    <p>Admin</p>
+                </div>
+            </div>
+            <div class="container-fluid main-content">
+                
+                <div class="row" style="border-bottom: 1px solid #0068a7">
+                    <div class="col-6"><h1><b>ระบบสรุปค่าขนส่ง</b> (Cost Daily and Month)</h1></div>
+                </div>
+
+
+                <nav class="mt-3">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-link active" id="nav-1-tab" data-bs-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-1" aria-selected="true">Cost Daily - Month</a>
+                      <a class="nav-link" id="nav-2-tab" data-bs-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-2" aria-selected="false">สรุป - บุคคลธรรมดา</a>
+                      <a class="nav-link" id="nav-3-tab" data-bs-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-3" aria-selected="false">สรุป - นิติบุคคล</a>
+                      </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Tab 1 -->
+                    <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">    
+                        <h1><b>รายงานค่าขนส่งประจำวัน / ประจำเดือน </b> (Cost & Percentage)</h1>
+                        <div class="container main-content">
+                            <!-- Search -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><b><i class="fas fa-search"></i> ค้นหา</b></h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="serach-keyword" class="col col-form-label">คำค้นหา (Keyword)</label>
+                                            <div class="col-sm-11">
+                                                <input type="text" class="form-control" id="serach-keyword">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-search-start-date" class="col col-form-label">เริ่ม วัน / เดือน / ปี (Start Date)</label>
+                                            <div class="col-sm-11 date-picker">
+                                                <input type="text" class="form-control" id="tab1-search-start-date">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-search-end-date" class="col col-form-label">ถึง วัน / เดือน / ปี (Arrive Date)</label>
+                                            <div class="col-sm-11 date-picker">
+                                                <input type="text" class="form-control" id="tab1-search-end-date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="serach-vender" class="col col-form-label me-4">ผู้รับจ้าง (Vender)</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="" id="tab1-flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                  บุคคลธรรมดา
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                  นิติบุคคล
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-11">
+                                                <input type="text" class="form-control" id="tab1-serach-vender">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-serach-vehicleno" class="col col-form-label">ทะเบียนรถ (Vehicle Num.)</label>
+                                            <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab1-search-vehicleno">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-serach-department" class="col col-form-label">แผนก (Department)</label>
+                                            <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab1-search-department">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab1-route-start-province" class="col col-form-label">ระยะทางเริ่มต้น (Start Distance)</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-start-province">
+                                                    <option selected>เลือกจังหวัด</option>
+                                                    <option value="1">กรุงเทพมหานคร</option>
+                                                    <option value="2">นนทบุรี</option>
+                                                    <option value="3">ปทุมธานี</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-route-start-district" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-start-district">
+                                                    <option selected>เลือกอำเภอ</option>
+                                                    <option value="1">อำเภอ1</option>
+                                                    <option value="2">อำเภอ2</option>
+                                                    <option value="3">อำเภอ3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-route-start-subdistrict" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-start-subdistrict">
+                                                    <option selected>เลือกตำบล</option>
+                                                    <option value="1">ตำบล1</option>
+                                                    <option value="2">ตำบล2</option>
+                                                    <option value="3">ตำบล3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab1-route-end-province" class="col col-form-label">สิ้นสุดระยะทาง (End Distance)</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-end-province">
+                                                    <option selected>เลือกจังหวัด</option>
+                                                    <option value="1">กรุงเทพมหานคร</option>
+                                                    <option value="2">นนทบุรี</option>
+                                                    <option value="3">ปทุมธานี</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-route-end-district" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-end-district">
+                                                    <option selected>เลือกอำเภอ</option>
+                                                    <option value="1">อำเภอ1</option>
+                                                    <option value="2">อำเภอ2</option>
+                                                    <option value="3">อำเภอ3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab1-route-end-subdistrict" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab1-route-end-subdistrict">
+                                                    <option selected>เลือกตำบล</option>
+                                                    <option value="1">ตำบล1</option>
+                                                    <option value="2">ตำบล2</option>
+                                                    <option value="3">ตำบล3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i> ค้นหา</button>
+                                        <button class="btn btn-success" type="button"><i class="fas fa-file-export"></i> Export</button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Table -->
+                        <div class="container-fluid table-scroll">
+                            <table id="costdailymonth-tab1-table-1" class="table table-bordered align-middle table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">หมายเลข</th>
+                                        <th scope="col">ชื่อผุ้จอง (Admin)</th>
+                                        <th scope="col">SUBCONTRACT</th>
+                                        <th scope="col">ชื่อคนขับ</th>
+                                        <th scope="col">ROUTE</th>
+                                        <th scope="col">จำนวน INV</th>
+                                        <th scope="col">เวลาจอง</th>
+                                        <th scope="col">เวลารับของ</th>
+                                        <th scope="col">เวลาที่เสร็จสิ้น</th>
+                                        <th scope="col">Distance</th>
+                                        <th scope="col">INV TOTAL</th>
+                                        <th scope="col">DIV 21 Amount</th>
+                                        <th scope="col">DIV31 Amount</th>
+                                        <th scope="col">DIV45 Amount</th>
+                                        <th scope="col">ค่าบริการสุทธิ + AirTime</th>
+                                        <th scope="col">ค่าเพิ่มจุด</th>
+                                        <th scope="col">ต่างจังหวัด</th>
+                                        <th scope="col">ต่างอำเภอ</th>
+                                        <th scope="col">ค่าระยะทาง</th>
+                                        <th scope="col">ค่าบริการเสริม</th>
+                                        <th scope="col">ทางด่วน</th>
+                                        <th scope="col">ที่จอดรถ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>หจก.บุญเชิดทรานสปอร์ต</td>
+                                        <td>วรรณพ</td>
+                                        <td>0017</td>
+                                        <td>&nbsp;</td>
+                                        <td>4/05/2020 17:47</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td>5/05/2020 07:00</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>หจก.บุญเชิดทรานสปอร์ต</td>
+                                        <td>นัฐพงษ์</td>
+                                        <td>0022</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 18:30</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 16:59</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>140</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>S2A LOGISTIC</td>
+                                        <td>สุขสันต์</td>
+                                        <td>0018</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 19:07</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 7/05/2020 18:27</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1550</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>หจก.บุญเชิดทรานสปอร์ต</td>
+                                        <td>สมชาย</td>
+                                        <td>0012</td>
+                                        <td>&nbsp;</td>
+                                        <td>4/05/2020 19:14</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 19:01</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>280</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>S2A LOGISTIC</td>
+                                        <td>ประเสริฐ</td>
+                                        <td>0011</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 19:29</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 15:15</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>70</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>หจก.บุญเชิดทรานสปอร์ต</td>
+                                        <td>ประกอบ</td>
+                                        <td>0016</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 19:50</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 17:01</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>210</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>Borneo</td>
+                                        <td>สุรดิษ</td>
+                                        <td>0009</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 19:51</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 15:27</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>S2A LOGISTIC</td>
+                                        <td>สมเกียรติ</td>
+                                        <td>0015</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 20:33</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 16:04</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1300</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>Borneo</td>
+                                        <td>วิวัตน์</td>
+                                        <td>0006</td>
+                                        <td>&nbsp;</td>
+                                        <td> 4/05/2020 20:40</td>
+                                        <td>5/05/2020 06:00</td>
+                                        <td> 5/05/2020 17:46</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>2300</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ฐิติกร ธุวะเสน</td>
+                                        <td>หจก.บุญเชิดทรานสปอร์ต</td>
+                                        <td>นิพลธ์</td>
+                                        <td>0005</td>
+                                        <td>&nbsp;</td>
+                                        <td> 5/05/2020 08:55</td>
+                                        <td>5/05/2020 09:57</td>
+                                        <td> 5/05/2020 11:25</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>1550</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="row-last">
+                                        <td>Total</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>14500</td>
+                                        <td>700</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="container-small">
+                            <table id="costdailymonth-tab1-table-2" class="table table-bordered align-middle table-striped">
+                                <tbody>
+                                    <tr class="row-summary">
+                                        <td class="bg-blue"><b>ค่าขนส่ง</b></td>
+                                        <td class="color-red">14500</td>
+                                    </tr>
+                                    <tr class="row-summary">
+                                        <td class="bg-blue"><b>ค่าเพิ่มจุด</b></td>
+                                        <td class="color-red">700</td>
+                                    </tr>
+                                    <tr class="row-summary">
+                                        <td class="bg-blue"><b>รวมทั้งหมด</b></td>
+                                        <td class="color-red">15200</td>
+                                    </tr>
+                                    <tr class="row-summary">
+                                        <td class="bg-blue"><b>หัก ณ ที่จ่าย 1%</b></td>
+                                        <td class="color-red">152</td>
+                                    </tr>
+                                    <tr class="row-summary">
+                                        <td class="bg-blue"><b>ค่าขนส่งสุทธิ</b></td>
+                                        <td class="color-red">15048</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2 -->
+                    <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                        <h1><b>ระบบป้อนข้อมูลบุคคลธรรมดา </b> (Add data personal system )</h1>
+                        <div class="container main-content">
+                            <!-- Search -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><b><i class="fas fa-search"></i> ค้นหา</b></h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab2-serach-keyword" class="col col-form-label">คำค้นหา (Keyword)</label>
+                                            <div class="col-sm-11">
+                                                <input type="text" class="form-control" id="tab2-serach-keyword">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-search-start-date" class="col col-form-label">เริ่ม วัน / เดือน / ปี (Start Date)</label>
+                                            <div class="col-sm-11 date-picker">
+                                                <input type="text" class="form-control" id="tab2-search-start-date">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-search-end-date" class="col col-form-label">ถึง วัน / เดือน / ปี (Arrive Date)</label>
+                                            <div class="col-sm-11 date-picker">
+                                                <input type="text" class="form-control" id="tab2-search-end-date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab2-serach-vender" class="col col-form-label me-4">ผู้รับจ้าง (Vender)</label>
+                                            <!-- <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                  บุคคลธรรมดา
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                  นิติบุคคล
+                                                </label>
+                                            </div> -->
+                                            <div class="col-sm-11">
+                                                <input type="text" class="form-control" id="tab2-serach-vender">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-serach-vehicleno" class="col col-form-label">ทะเบียนรถ (Vehicle Num.)</label>
+                                            <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab2-search-vehicleno">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-serach-department" class="col col-form-label">แผนก (Department)</label>
+                                            <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab2-search-department">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab2-route-start-province" class="col col-form-label">ระยะทางเริ่มต้น (Start Distance)</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-start-province">
+                                                    <option selected>เลือกจังหวัด</option>
+                                                    <option value="1">กรุงเทพมหานคร</option>
+                                                    <option value="2">นนทบุรี</option>
+                                                    <option value="3">ปทุมธานี</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-route-start-district" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-start-district">
+                                                    <option selected>เลือกอำเภอ</option>
+                                                    <option value="1">อำเภอ1</option>
+                                                    <option value="2">อำเภอ2</option>
+                                                    <option value="3">อำเภอ3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-route-start-subdistrict" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-start-subdistrict">
+                                                    <option selected>เลือกตำบล</option>
+                                                    <option value="1">ตำบล1</option>
+                                                    <option value="2">ตำบล2</option>
+                                                    <option value="3">ตำบล3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col">
+                                            <label for="tab2-route-end-province" class="col col-form-label">สิ้นสุดระยะทาง (End Distance)</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-end-province">
+                                                    <option selected>เลือกจังหวัด</option>
+                                                    <option value="1">กรุงเทพมหานคร</option>
+                                                    <option value="2">นนทบุรี</option>
+                                                    <option value="3">ปทุมธานี</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-route-end-district" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-end-district">
+                                                    <option selected>เลือกอำเภอ</option>
+                                                    <option value="1">อำเภอ1</option>
+                                                    <option value="2">อำเภอ2</option>
+                                                    <option value="3">อำเภอ3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tab2-route-end-subdistrict" class="col col-form-label">&nbsp;</label>
+                                            <div class="col-sm-11">
+                                                <select class="form-select" id="tab2-route-end-subdistrict">
+                                                    <option selected>เลือกตำบล</option>
+                                                    <option value="1">ตำบล1</option>
+                                                    <option value="2">ตำบล2</option>
+                                                    <option value="3">ตำบล3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i> ค้นหา</button>
+                                        <button class="btn btn-success" type="button"><i class="fas fa-file-export"></i> Export</button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Table -->
+                        <div class="container-fluid table-scroll">
+
+                            <div class="mb-2 row">
+                                <div class="col">
+                                    <label for="tab2-start-store" class="col col-form-label">ค่าขนส่ง (คลังสินค้าหลักสี่)</label>
+                                    <div class="col-sm-11">
+                                        <input type="text" class="form-control" id="tab2-start-store">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="tab2-end-store" class="col col-form-label">จังหวัดใกล้เคียง</label>
+                                    <div class="col-sm-11">
+                                        <input type="text" class="form-control" id="tab2-end-store">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table id="costdailymonth-tab2-table-1" class="table table-bordered align-middle table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>ชื่อ</th>
+                                        <th>Route</th>
+                                        <th>จำนวนเที่ยว<br>(A)</th>
+                                        <th>ราคาต่อเที่ยว<br>(B)</th>
+                                        <th>Total เที่ยว<br>(C=A*B)</th>
+                                        <th>ราคาเพิ่มต่อจุด<br>(D)</th>
+                                        <th>จำนวนจุดที่เพิ่ม<br>(E)</th>
+                                        <th>ราคารวมต่อจุด<br>(F=D*E)</th>
+                                        <th>จำนวนรวมค่าเที่ยวทั้งหมด<br>(G=C+F)</th>
+                                        <th>W/T<br>(H*G*1%)</th>
+                                        <th>Net Paymemt<br>(I=G-H)</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">วิวัฒน์</td>
+                                        <td>BKK</td>
+                                        <td>20</td>
+                                        <td>1,250</td>
+                                        <td>25,000</td>
+                                        <td>70</td>
+                                        <td>2</td>
+                                        <td>140</td>
+                                        <td>25,140</td>
+                                        <td>251</td>
+                                        <td>24,889 </td>
+                                        <td rowspan="2">
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="modal"  data-bs-target="#editDataPersonal"><i class="fas fa-pen"></i> แก้ไข</button>
+                                                <button class="btn btn-danger" type="button" data-bs-toggle="modal"  data-bs-target="#deleteDataPersonal"><i class="fas fa-trash"></i> ลบ</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>สระบุรี</td>
+                                        <td>2</td>
+                                        <td>1,800</td>
+                                        <td>3,600</td>
+                                        <td>70</td>
+                                        <td>1</td>
+                                        <td>70</td>
+                                        <td>3,670</td>
+                                        <td>37</td>
+                                        <td>3,633 </td>
+                                    </tr>
+                                    <tr class="row-last">
+                                        <td colspan="2" style="text-align: center;">รวมทั้งหมด</td>
+                                        <td>&nbsp;</td>
+                                        <td>22</td>
+                                        <td>3,050</td>
+                                        <td>28,600</td>
+                                        <td>40</td>
+                                        <td>3</td>
+                                        <td>210</td>
+                                        <td>28,810</td>
+                                        <td>288</td>
+                                        <td>28,522 </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-grid gap-2 col-2 mx-auto">
+                            <button class="btn btn-success" type="button" data-bs-toggle="modal"  data-bs-target="#addDataPersonal"><i class="fas fa-plus"></i> เพิ่มข้อมูลบุคคลธรรมดา</button>
+                        </div>
+
+
+                        <div class="mt-3 mb-2 row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3><b>Prepared By</b></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab2-prepared-by">
+                                        </div>
+                                        <label for="tab2-prepared-date" class="col col-form-label">Date</label>
+                                        <div class="col-sm-11 date-picker">
+                                            <input type="text" class="form-control" id="tab2-prepared-date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3><b>Agreed By</b></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab2-agreed-by">
+                                        </div>
+                                        <label for="tab2-agreed-date" class="col col-form-label">Date</label>
+                                        <div class="col-sm-11 date-picker">
+                                            <input type="text" class="form-control" id="tab2-agreed-date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3><b>Approved By</b></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-sm-11">
+                                            <input type="text" class="form-control" id="tab2-approved-by">
+                                        </div>
+                                        <label for="tab2-approved-date" class="col col-form-label">Date</label>
+                                        <div class="col-sm-11 date-picker">
+                                            <input type="text" class="form-control" id="tab2-approved-date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3-->
+                    <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+                        Tab3
+                    </div>
+
+                    <!-- Modal Tab2 Add data personal -->
+                    <div class="modal fade" id="addDataPersonal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addDataPersonalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-body" style="overflow: auto;">
+                                <h5 class="modal-title" id="addDataPersonalLabel">เพิ่มข้อมูลบุคคลธรรมดา <span>(คลิกที่ช่อง เพื่อเพิ่มข้อมูล)</span></h5>
+                                <table id="costdailymonth-tab2-table-2" class="table table-add table-bordered align-middle table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>Route</th>
+                                            <th>จำนวนเที่ยว<br>(A)</th>
+                                            <th>ราคาต่อเที่ยว<br>(B)</th>
+                                            <th>Total เที่ยว<br>(C=A*B)</th>
+                                            <th>ราคาเพิ่มต่อจุด<br>(D)</th>
+                                            <th>จำนวนจุดที่เพิ่ม<br>(E)</th>
+                                            <th>ราคารวมต่อจุด<br>(F=D*E)</th>
+                                            <th>จำนวนรวมค่าเที่ยวทั้งหมด<br>(G=C+F)</th>
+                                            <th>W/T<br>(H*G*1%)</th>
+                                            <th>Net Paymemt<br>(I=G-H)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                                    <button class="btn btn-success" type="button" data-bs-dismiss="modal">เพิ่ม</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Tab2 Edit data personal -->
+                    <div class="modal fade" id="editDataPersonal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDataPersonalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-body" style="overflow: auto;">
+                                <h5 class="modal-title" id="editDataPersonalLabel">แก้ไขข้อมูลบุคคลธรรมดา <span>(คลิกที่ช่อง เพื่อแก้ไข)</span></h5>
+                                <table id="costdailymonth-tab2-table-3" class="table table-bordered align-middle table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>Route</th>
+                                            <th>จำนวนเที่ยว<br>(A)</th>
+                                            <th>ราคาต่อเที่ยว<br>(B)</th>
+                                            <th>Total เที่ยว<br>(C=A*B)</th>
+                                            <th>ราคาเพิ่มต่อจุด<br>(D)</th>
+                                            <th>จำนวนจุดที่เพิ่ม<br>(E)</th>
+                                            <th>ราคารวมต่อจุด<br>(F=D*E)</th>
+                                            <th>จำนวนรวมค่าเที่ยวทั้งหมด<br>(G=C+F)</th>
+                                            <th>W/T<br>(H*G*1%)</th>
+                                            <th>Net Paymemt<br>(I=G-H)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="วิวัฒน์">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="BKK">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="20">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="1,250">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="25,000">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="70">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="2">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="140">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="25,140">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="251">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="24,889">
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="สระบุรี">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="2">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="1,800">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="3,600">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="70">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="1">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="70">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="3,670">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="37">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-auto">
+                                                    <input type="text" data-readonly="false" class="form-control-plaintext" value="3,633">
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                                    <button class="btn btn-success" type="button" data-bs-dismiss="modal">แก้ไข</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Tab2 Edit data personal -->
+                    <div class="modal fade" id="editDataPersonal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editDataPersonalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-body" style="overflow: auto;">
+                                <h5 class="modal-title" id="editDataPersonalLabel">แก้ไขข้อมูลบุคคลธรรมดา <span>(คลิกที่ช่อง เพื่อแก้ไข)</span></h5>
+                                
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                                    <button class="btn btn-success" type="button" data-bs-dismiss="modal">แก้ไข</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Tab2 Delete data personal -->
+                    <div class="modal fade" id="deleteDataPersonal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDataPersonalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm">
+                          <div class="modal-content">
+                            <div class="modal-body" style="overflow: auto;">
+                                <h5 class="modal-title text-center color-red" id="deleteDataPersonalLabel">คุณต้องการลบข้อมูลบุคคลธรรมดาใช่หรือไม่</h5>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">ยกเลิก</button>
+                                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">ลบ</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+      
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://kit.fontawesome.com/a2fa866ca5.js" crossorigin="anonymous"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $( function() {
+            // Tab1
+            $( "#tab1-search-start-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+            $( "#tab1-search-end-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+
+            // Tab2
+            $( "#tab2-search-start-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+            $( "#tab2-search-end-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+            $( "#tab2-prepared-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+            $( "#tab2-agreed-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+
+            $( "#tab2-approved-date" ).datepicker({
+                showOn: "button",
+                showOtherMonths: true,
+                buttonImage: "assets/ic-calendar.svg",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "dd-mm-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+        } );
+    </script>
+
+</body>
+</html>
