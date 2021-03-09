@@ -311,6 +311,7 @@ a.btn {
   width: auto;
   line-height: 1.6;
   padding: 0.3rem 0.3rem;
+  min-width: 40px;
 }
 
 .table tbody tr th {
@@ -549,6 +550,15 @@ body {
   text-align: center;
 }
 
+/* Cost Daily and Month Page */
+.performance-page .col-form-label {
+  line-height: 1;
+}
+
+.performance-page .table > tbody > tr > td {
+  min-width: 100px;
+  text-align: center;
+}
 /* Chart.js */
 @keyframes chartjs-render-animation {
   from {
